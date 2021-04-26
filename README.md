@@ -1,6 +1,11 @@
 # Casey
 
-A simple library to support various string notation systems and convert strings from one to another.
+![PyPI](https://img.shields.io/pypi/v/casey)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/casey)
+![Codecov](https://img.shields.io/codecov/c/gh/marverix/casey?token=NPX0JP4458)
+![GitHub](https://img.shields.io/github/license/marverix/casey)
+
+A simple library to support various naming conventions and convert strings from one to another.
 
 Casey supports:
 

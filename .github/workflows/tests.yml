@@ -1,7 +1,8 @@
 name: Build executables
 
 on:
-  push:
+  - push
+  - pull_request
 
 jobs:
   build:
@@ -9,12 +10,12 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8]
-    name: main
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Python
+      - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
@@ -27,5 +28,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Tox
+      - name: Test
         run: tox
+        env:
+          PLATFORM: ${{ matrix.platform }}

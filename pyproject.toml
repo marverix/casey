@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "casey"
+version = "1.0.0"
+description = "A simple library to support various string notation systems"
+authors = ["Marek Sierociński"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.1"
+pycodestyle = "^2.7.0"
+coverage = "^5.5"
+tox = "^3.23.0"
+tox-poetry = "^0.3.0"
+codecov = "^2.1.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,9 +1,22 @@
 [tool.poetry]
 name = "casey"
-version = "1.0.0"
-description = "A simple library to support various string notation systems"
-authors = ["Marek Sierociński"]
+version = "1.0.1"
+description = "A simple library to support various naming conventions and convert strings from one to another"
+authors = [
+    "Marek Sierociński <mareksierocinski@gmail.com>"
+]
 license = "Apache-2.0"
+
+readme = "README.md"
+
+repository = "https://github.com/marverix/casey"
+homepage = "https://github.com/marverix/casey"
+
+keywords = ["naming conventions", "camelCase", "PascalCase", "kebab-case", "snake_case"]
+
+classifiers = [
+    "Topic :: Utilities"
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"

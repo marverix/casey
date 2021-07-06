@@ -1,4 +1,6 @@
 # Casey
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmarverix%2Fcasey.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmarverix%2Fcasey?ref=badge_shield)
+
 
 ![PyPI](https://img.shields.io/pypi/v/casey)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/casey)
@@ -90,3 +92,6 @@ print(subject)
 ## License
 
 This project is licensed under Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmarverix%2Fcasey.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmarverix%2Fcasey?ref=badge_large)

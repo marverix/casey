@@ -1,11 +1,10 @@
 # Casey
+
+[![PyPI](https://img.shields.io/pypi/v/casey)](https://pypi.org/project/casey/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/casey)](https://github.com/marverix/casey/actions/workflows/tests.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/marverix/casey?token=NPX0JP4458)](https://app.codecov.io/gh/marverix/casey)
+[![GitHub](https://img.shields.io/github/license/marverix/casey)](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmarverix%2Fcasey.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmarverix%2Fcasey?ref=badge_shield)
-
-
-![PyPI](https://img.shields.io/pypi/v/casey)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/casey)
-![Codecov](https://img.shields.io/codecov/c/gh/marverix/casey?token=NPX0JP4458)
-![GitHub](https://img.shields.io/github/license/marverix/casey)
 
 A simple library to support various naming conventions and convert strings from one to another.
 

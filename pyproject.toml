@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "casey"
-version = "1.0.2"
+version = "1.0.3"
 description = "A simple library to support various naming conventions and convert strings from one to another"
 authors = [
     "Marek Sierociński <mareksierocinski@gmail.com>"

@@ -30,25 +30,29 @@ import casey
 
 subject = "every 1 WORD is very IMPORTANT"
 
-subject = casey.camel(subject)
-print(subject)
+print(casey.camel(subject))
 # Prints: every1WORDIsVeryIMPORTANT
 
-subject = casey.kebab(subject)
-print(subject)
+print(casey.kebab(subject))
 # Prints: every-1-WORD-is-very-IMPORTANT
 
-subject = casey.pascal(subject)
-print(subject)
+print(casey.pascal(subject))
 # Prints: Every1WORDIsVeryIMPORTANT
 
-subject = casey.snake(subject)
-print(subject)
+print(casey.snake(subject))
 # Prints: every_1_WORD_is_very_IMPORTANT
 
-subject = casey.snake(subject, upper=True)
-print(subject)
+print(casey.snake(subject, upper=True))
 # Prints: EVERY_1_WORD_IS_VERY_IMPORTANT
+
+def my_transformation(idx: int, word: str) -> str:
+  if idx % 2 == 0:
+    return word.lower()
+  else:
+    return word.upper()
+  
+print(casey.transform(subject, my_transformation, "_"))
+# Prints: every_1_word_IS_very_IMPORTANT
 
 ```
 
@@ -87,6 +91,12 @@ print(subject)
 * `lower_first(subject: str) -> str: ...`
 
     Returns string with lower first letter (A-Z).
+
+* `transform(subject: str, transformation: Callable, glue=" ") -> str: ...`
+
+    Returns string transformed by the transformation function.
+    The transformation function accepts 2 parameters: current word index (int), and a word itself (str).
+    Glue is the string used to concat transformed words into one string.
 
 ## License
 

@@ -1,4 +1,5 @@
 import re
+from typing import List, Callable, Union
 
 
 def clean(subject: str) -> str:
@@ -30,35 +31,60 @@ def clean(subject: str) -> str:
     return subject
 
 
+def clean_list(subject: str) -> List[str]:
+    return clean(subject).split(" ")
+
+
+def transform(subject: str, transformation: Union[Callable, None], glue=" ") -> str:
+    normalized = clean_list(subject)
+    words = []
+    for idx, word in enumerate(normalized):
+        if transformation:
+            w = transformation(idx, word)
+        else:
+            w = word
+        words.append(w)
+
+    return glue.join(words)
+
+
+def _camel_transformation(idx: int, word: str) -> str:
+    if idx == 0:
+        return word
+    else:
+        return upper_first(word)
+
+
 def camel(subject: str) -> str:
     """
     Returns string in camelCase
     """
-    normalized_subject = clean(subject)
-    return re.sub(r" [a-z0-9]", lambda m: m.group(0)[1].upper(), normalized_subject, flags=re.IGNORECASE)
+    return transform(subject, _camel_transformation, "")
+
+
+def _pascal_transformation(idx: int, word: str) -> str:
+    return upper_first(word)
 
 
 def pascal(subject: str) -> str:
     """
     Returns string in PascalCase
     """
-    return upper_first(camel(subject))
+    return transform(subject, _pascal_transformation, "")
 
 
 def kebab(subject: str) -> str:
     """
     Returns string in kebab-case
     """
-    normalized_subject = clean(subject)
-    return re.sub(r"\s", '-', normalized_subject)
+    return transform(subject, None, "-")
 
 
 def snake(subject: str, upper=False) -> str:
     """
     Returns string in snake_case
     """
-    normalized_subject = clean(subject)
-    s = re.sub(r"\s", '_', normalized_subject)
+    s = transform(subject, None, "_")
 
     if upper:
         s = s.upper()

@@ -1,5 +1,6 @@
 import re
 from typing import List, Callable, Union
+from inspect import signature
 
 
 def clean(subject: str) -> str:
@@ -38,17 +39,28 @@ def clean_list(subject: str) -> List[str]:
 def transform(subject: str, transformation: Union[Callable, None], glue=" ") -> str:
     normalized = clean_list(subject)
     words = []
-    for idx, word in enumerate(normalized):
-        if transformation:
-            w = transformation(idx, word)
-        else:
-            w = word
-        words.append(w)
+
+    if transformation:
+        sig = signature(transformation)
+        params_number = len(sig.parameters)
+
+        for idx, word in enumerate(normalized):
+            if params_number == 0:
+                w = transformation()
+            elif params_number == 1:
+                w = transformation(word)
+            elif params_number == 2:
+                w = transformation(word, idx)
+            else:
+                raise Exception("Wrong number of arguments for transformation")
+            words.append(w)
+    else:
+        words = normalized
 
     return glue.join(words)
 
 
-def _camel_transformation(idx: int, word: str) -> str:
+def _camel_transformation(word: str, idx: int) -> str:
     if idx == 0:
         return word
     else:
@@ -62,7 +74,7 @@ def camel(subject: str) -> str:
     return transform(subject, _camel_transformation, "")
 
 
-def _pascal_transformation(idx: int, word: str) -> str:
+def _pascal_transformation(word: str, _) -> str:
     return upper_first(word)
 
 

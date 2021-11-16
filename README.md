@@ -45,7 +45,7 @@ print(casey.snake(subject))
 print(casey.snake(subject, upper=True))
 # Prints: EVERY_1_WORD_IS_VERY_IMPORTANT
 
-def my_transformation(idx: int, word: str) -> str:
+def my_transformation(word: str, idx: int) -> str:
   if idx % 2 == 0:
     return word.lower()
   else:

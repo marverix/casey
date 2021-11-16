@@ -206,6 +206,33 @@ class TestCasey(unittest.TestCase):
             'Return string with very first letter lower'
         )
 
+    def test_transform(self):
+        phrase = "Every 1 WORD, is very IMPORTANT!"
+
+        self.assertEqual(
+            casey.transform(phrase, None, '_'),
+            'every_1_WORD_is_very_IMPORTANT',
+            'Return glued with underscore string'
+        )
+
+        self.assertEqual(
+            casey.transform(phrase, lambda: "x", '_'),
+            'x_x_x_x_x_x',
+            'Return string for transformation without any argument'
+        )
+
+        self.assertEqual(
+            casey.transform(phrase, lambda word: word.upper(), '__'),
+            'EVERY__1__WORD__IS__VERY__IMPORTANT',
+            'Return string for transformation with one argument'
+        )
+
+        self.assertEqual(
+            casey.transform(phrase, lambda word, idx: word.upper() + str(idx), '__'),
+            'EVERY0__11__WORD2__IS3__VERY4__IMPORTANT5',
+            'Return string for transformation with two arguments'
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
